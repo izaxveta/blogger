@@ -4,7 +4,14 @@
     
     <% @articles.each do |article| %>
         <li>
-            <%= article.title %>
+            <%= link_to article.title, article_path(article), class: 'article_title'%>
+            <%# <%= link_to article.title, article_path(article),
+                class: 'article_title', id: "article_#{article.id}" %>
+            <%# If you wanted to also have a CSS ID attribute. Whtne the template is rendered, %>
+            <%# it will output HTML like this: %>
+                <%# <a class="article_title" id="article_1" href="/articles/1">First Sample Article</a> %>
         </li>
     <% end %>
 </ul>
+
+<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
